@@ -8,9 +8,11 @@ const Form = ({
   isbn,
   setIsbn,
   currentBookId,
+  handleSubmit,
+  cancelEdit,
 }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>Title</label>
       <input
         autoFocus
@@ -36,6 +38,7 @@ const Form = ({
       <button tabIndex="0" type="submit">
         {currentBookId !== null ? "Update" : "Add"}
       </button>
+      {currentBookId !== null && <button onClick={cancelEdit}>Cancel</button>}
     </form>
   );
 };
